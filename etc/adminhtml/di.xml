@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Model\Product\Link\SaveHandler">
+        <plugin name="admin_activity_tracker_product_link_save_handler" type="CloudCommerce\AdminActivityTracker\Plugin\ProductLinkSaveHandlerPlugin" sortOrder="100"/>
+    </type>
+    <type name="Magento\ConfigurableProduct\Model\ResourceModel\Product\Type\Configurable">
+        <plugin name="admin_activity_tracker_configurable_save" type="CloudCommerce\AdminActivityTracker\Plugin\ConfigurableProductSavePlugin" sortOrder="100"/>
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Status">
+        <plugin name="admin_activity_tracker_order_status" type="CloudCommerce\AdminActivityTracker\Plugin\OrderStatusPlugin" sortOrder="100"/>
+    </type>
+    <type name="Magento\Sales\Model\Order">
+        <plugin name="admin_activity_tracker_order_comment" type="CloudCommerce\AdminActivityTracker\Plugin\OrderCommentPlugin" sortOrder="100"/>
+    </type>
+    <type name="Magento\Directory\Model\Currency">
+        <plugin name="admin_activity_tracker_currency" type="CloudCommerce\AdminActivityTracker\Plugin\CurrencyPlugin" sortOrder="100"/>
+    </type>
+    <type name="Magento\Config\Model\Config">
+        <plugin name="admin_activity_tracker_config" type="CloudCommerce\AdminActivityTracker\Plugin\ConfigPlugin" sortOrder="100"/>
+    </type>
+    <type name="Magento\Theme\Model\DesignConfigRepository">
+        <plugin name="admin_activity_tracker_design_config" type="CloudCommerce\AdminActivityTracker\Plugin\DesignConfigPlugin" sortOrder="100"/>
+    </type>
+</config>

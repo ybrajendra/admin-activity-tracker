@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">activity_log_listing.activity_log_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>activity_log_columns</spinner>
+        <deps>
+            <dep>activity_log_listing.activity_log_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="activity_log_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>CloudCommerce_AdminActivityTracker::activity_log</aclResource>
+        <dataProvider class="CloudCommerce\AdminActivityTracker\Ui\DataProvider\ActivityLogDataProvider" name="activity_log_listing_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filters name="listing_filters">
+            <settings>
+                <templates>
+                    <filters>
+                        <select>
+                            <param name="template" xsi:type="string">ui/grid/filters/elements/ui-select</param>
+                            <param name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</param>
+                        </select>
+                    </filters>
+                </templates>
+            </settings>
+        </filters>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="activity_log_columns">
+        <column name="id" sortOrder="10">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">ID</label>
+                <sorting>desc</sorting>
+            </settings>
+        </column>
+        <column name="username" sortOrder="20">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Username</label>
+            </settings>
+        </column>
+        <column name="action" sortOrder="30">
+            <settings>
+                <filter>select</filter>
+                <options class="CloudCommerce\AdminActivityTracker\Ui\Component\Listing\Column\ActionOptions"/>
+                <dataType>select</dataType>
+                <label translate="true">Action</label>
+            </settings>
+        </column>
+        <column name="entity_type" sortOrder="40">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Entity Type</label>
+            </settings>
+        </column>
+        <column name="entity_id" sortOrder="50">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">Entity ID</label>
+            </settings>
+        </column>
+        <column name="ip_address" sortOrder="60">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">IP Address</label>
+            </settings>
+        </column>
+        <column name="store_id" sortOrder="65">
+            <settings>
+                <filter>select</filter>
+                <options class="CloudCommerce\AdminActivityTracker\Ui\Component\Listing\Column\StoreOptions"/>
+                <dataType>select</dataType>
+                <label translate="true">Store</label>
+                <component>Magento_Ui/js/form/element/ui-select</component>
+                <filterOptions>
+                    <param name="multiple" xsi:type="boolean">true</param>
+                    <param name="showCheckbox" xsi:type="boolean">true</param>
+                    <param name="closeBtn" xsi:type="boolean">true</param>
+                </filterOptions>
+            </settings>
+        </column>
+        <column name="changes" class="CloudCommerce\AdminActivityTracker\Ui\Component\Listing\Column\Changes" sortOrder="68">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Changes</label>
+                <bodyTmpl>CloudCommerce_AdminActivityTracker/grid/cells/changes</bodyTmpl>
+                <align>left</align>
+            </settings>
+        </column>
+        <column name="created_at" class="Magento\Ui\Component\Listing\Columns\Date" component="Magento_Ui/js/grid/columns/date" sortOrder="70">
+            <settings>
+                <filter>dateRange</filter>
+                <dataType>date</dataType>
+                <label translate="true">Created At</label>
+            </settings>
+        </column>
+    </columns>
+</listing>

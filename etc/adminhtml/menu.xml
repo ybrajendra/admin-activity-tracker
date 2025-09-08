@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="CloudCommerce_AdminActivityTracker::main" title="Admin Activity Tracker" module="CloudCommerce_AdminActivityTracker" sortOrder="100" resource="CloudCommerce_AdminActivityTracker::admin"/>
+        <add id="CloudCommerce_AdminActivityTracker::activity_log" title="Activity Log" module="CloudCommerce_AdminActivityTracker" sortOrder="10" parent="CloudCommerce_AdminActivityTracker::main" action="adminactivity/log/index" resource="CloudCommerce_AdminActivityTracker::activity_log"/>
+    </menu>
+</config>

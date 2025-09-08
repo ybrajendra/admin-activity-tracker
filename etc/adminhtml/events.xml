@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="model_save_after">
+        <observer name="admin_activity_tracker_save" instance="CloudCommerce\AdminActivityTracker\Observer\ModelSaveObserver"/>
+    </event>
+    <event name="model_delete_after">
+        <observer name="admin_activity_tracker_delete" instance="CloudCommerce\AdminActivityTracker\Observer\ModelDeleteObserver"/>
+    </event>
+    <event name="sales_order_invoice_register">
+        <observer name="admin_activity_tracker_invoice_register" instance="CloudCommerce\AdminActivityTracker\Observer\InvoiceRegisterObserver"/>
+    </event>
+    <event name="backend_auth_user_login_success">
+        <observer name="admin_activity_tracker_login" instance="CloudCommerce\AdminActivityTracker\Observer\AdminLoginObserver"/>
+    </event>
+    <event name="admin_user_authenticate_after">
+        <observer name="admin_activity_tracker_logout" instance="CloudCommerce\AdminActivityTracker\Observer\AdminLogoutObserver"/>
+    </event>
+
+</config>

@@ -1,0 +1,25 @@
+{
+    "name": "cloudcommerce/admin-activity-tracker",
+    "description": "Magento 2 module for comprehensive admin user activity tracking and auditing",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "CloudCommerce",
+            "email": "ybrajendra@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "magento/framework": ">=103.0"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "CloudCommerce\\AdminActivityTracker\\": ""
+        }
+    }
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="cloudcommerce" translate="label" sortOrder="200">
+            <label>CloudCommerce</label>
+        </tab>
+        <section id="admin_activity_tracker" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="0" showInStore="0">
+            <class>separator-top</class>
+            <label>Admin Activity Tracker</label>
+            <tab>cloudcommerce</tab>
+            <resource>CloudCommerce_AdminActivityTracker::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Settings</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Admin Activity Tracker</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>admin_activity_tracker/general/enabled</config_path>
+                </field>
+                <field id="excluded_sections" translate="label" type="multiselect" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Exclude Sections from Tracking</label>
+                    <source_model>CloudCommerce\AdminActivityTracker\Model\Config\Source\ExcludedSections</source_model>
+                    <config_path>admin_activity_tracker/general/excluded_sections</config_path>
+                    <comment>Select sections to exclude from activity tracking</comment>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                <field id="data_retention" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Data Retention Period</label>
+                    <source_model>CloudCommerce\AdminActivityTracker\Model\Config\Source\DataRetention</source_model>
+                    <config_path>admin_activity_tracker/general/data_retention</config_path>
+                    <comment>How long to keep activity and snapshot data</comment>
+                </field>
+                <field id="cleanup_cron_time" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Cleanup Cron Schedule</label>
+                    <config_path>admin_activity_tracker/general/cleanup_cron_time</config_path>
+                    <comment>Cron expression for cleanup job (e.g., 0 2 * * * for daily at 2 AM)</comment>
+                    <validate>required-entry</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
