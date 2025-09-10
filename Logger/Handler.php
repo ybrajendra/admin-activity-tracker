@@ -68,10 +68,10 @@ class Handler extends Base
      * Checks for log rotation before writing the record to ensure
      * log files don't grow too large.
      * 
-     * @param \Monolog\LogRecord $record Log record to write
+     * @param $record Log record to write
      * @return void
      */
-    protected function write(\Monolog\LogRecord $record): void
+    protected function write($record): void
     {
         $this->checkLogRotation();
         parent::write($record);
