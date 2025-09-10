@@ -2,7 +2,6 @@
     "name": "cloudcommerce/admin-activity-tracker",
     "description": "Magento 2 module for comprehensive admin user activity tracking and auditing",
     "type": "magento2-module",
-    "version": "1.0.1",
     "license": "MIT",
     "authors": [
         {
